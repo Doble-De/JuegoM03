@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="889.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MenuController">
+   <children>
+      <ImageView fitHeight="509.0" fitWidth="906.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/fondo.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="405.0" fitWidth="399.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/cubomenu.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="230.0" fitWidth="249.0" layoutX="275.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/gotag.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="430.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/acidomenu.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="43.0" fitWidth="51.0" layoutX="170.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/gotad.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="33.0" layoutX="314.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/gotad.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="20.0" fitWidth="18.0" layoutX="225.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/gotad.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="55.0" layoutX="500.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/gotad.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="39.0" fitWidth="33.0" layoutX="598.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/gotad.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="525.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/gotad.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="84.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/gotad.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="43.0" fitWidth="43.0" layoutX="390.0" layoutY="253.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/gotad.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="73.0" fitWidth="80.0" layoutX="225.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/gotad.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="59.0" fitWidth="51.0" layoutX="488.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/gotad.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="43.0" fitWidth="33.0" layoutX="395.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/gotad.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="326.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start" textAlignment="CENTER" wrappingWidth="127.0">
+         <font>
+            <Font name="Chinyen Normal" size="23.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="start" layoutX="337.0" layoutY="96.0" onAction="#playgame" opacity="0.0" prefHeight="123.0" prefWidth="105.0" text="Start">
+         <font>
+            <Font name="Chinyen Normal" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="exit" layoutX="459.0" layoutY="309.0" onAction="#exitgame" prefHeight="73.0" prefWidth="90.0" text="Exit">
+         <font>
+            <Font name="Chinyen Normal" size="22.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
