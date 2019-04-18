@@ -101,5 +101,26 @@
             <Font name="Chinyen Normal" size="22.0" />
          </font>
       </JFXButton>
+      <ImageView fitHeight="73.0" fitWidth="33.0" layoutX="749.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/flechadere.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="79.0" fitWidth="33.0" layoutX="795.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/flechaizqui.png" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="689.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Controles:">
+         <font>
+            <Font name="Chinyen Normal" size="15.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="634.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Utiliza las flechas para movel el cubo y cojer las gotas de agua, evita el acido o perderas todo el agua cogida." wrappingWidth="230.0" />
+      <ImageView fitHeight="277.0" fitWidth="315.0" layoutX="580.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@recources/title.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

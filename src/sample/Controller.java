@@ -6,8 +6,10 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Point2D;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -24,7 +26,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
-
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -38,7 +40,7 @@ public class Controller implements Initializable {
     private MediaPlayer audioClip = new MediaPlayer(sound);
     private AudioClip g = new AudioClip(getClass().getClassLoader().getResource("sample/recources/gota.wav").toExternalForm());
     private AudioClip a = new AudioClip(getClass().getClassLoader().getResource("sample/recources/acido.wav").toExternalForm());
-    private Font tamaño = new Font("Chinyen", 20);
+    private Font tamaño = new Font("Chinyen", 30);
     private Cubo cubo;
     private Gota gota1, gota2, gota3, acido;
     private GraphicsContext gc;
@@ -46,6 +48,8 @@ public class Controller implements Initializable {
     double posX1, posX2, posX3;
     boolean dere, izqui;
     public int score = 0;
+    private boolean menu = false;
+    boolean mover = true;
     private String textScore = "Score: ";
 
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.017), new EventHandler<ActionEvent>(){
@@ -64,7 +68,7 @@ public class Controller implements Initializable {
             gota1.clear(gc);
             gota2.clear(gc);
             acido.clear(gc);
-            gc.setFill(Color.BLACK);
+            gc.setFill(Color.WHITE);
             gc.setFont(tamaño);
             gc.drawImage(fondo,0,0 );
             posX3 = acido.caer(posX2,"acido");
@@ -72,12 +76,16 @@ public class Controller implements Initializable {
             gota1.render(gc);
             gota2.render(gc);
             acido.render(gc);
-            gc.fillText("Score: " + score, 380, 20);
+            gc.drawImage(new Image("sample/recources/recuadro.png"),280,-40);
+            gc.fillText("Score: " + score, 380, 25);
 
             cubo.setDirection(dere, izqui);
             colision(gota1, cubo, "gota");
             colision(gota2, cubo, "gota");
             colision(acido, cubo, "acido");
+            if(score >= 10000){
+                win();
+            }
 
         }
     })
@@ -121,7 +129,27 @@ public class Controller implements Initializable {
             @Override
             public void handle(MouseEvent mouseEvent) {
                 Point2D point = new Point2D(mouseEvent.getX(),mouseEvent.getY());
-                if(cubo.isClicked(point)) cubo.changeDir();
+                if (menu){
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    Scene sc = new Scene(root);
+
+                    MenuController window = loader.getController();
+                    window.setScene(sc);
+                    window.setStage(stage);
+
+                    stage.setScene(sc);
+                    stage.setTitle("Rebota");
+                    stage.setFullScreen(false);
+                    stage.show();
+                    menu = false;
+                    mover = true;
+                }
                 System.out.println("click");
             }
         });
@@ -129,18 +157,20 @@ public class Controller implements Initializable {
         scene.setOnKeyPressed(new EventHandler <KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                cubo.clear(gc);
-                if (event.getCode() == KeyCode.LEFT){
-                    dere = true;
+                if (mover){
+                    cubo.clear(gc);
+                    if (event.getCode() == KeyCode.LEFT){
+                        dere = true;
+                    }
+                    if (event.getCode() == KeyCode.RIGHT){
+                        izqui = true;
+                    }
+                    gc.drawImage(fondo,0,0 );
+                    cubo.render(gc);
+                    gota1.render(gc);
+                    gota2.render(gc);
+                    acido.render(gc);
                 }
-                if (event.getCode() == KeyCode.RIGHT){
-                    izqui = true;
-                }
-                gc.drawImage(fondo,0,0 );
-                cubo.render(gc);
-                gota1.render(gc);
-                gota2.render(gc);
-                acido.render(gc);
             }
         });
 
@@ -176,6 +206,7 @@ public class Controller implements Initializable {
 
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+
         //audioClip.play();
 
 
@@ -183,5 +214,14 @@ public class Controller implements Initializable {
 
     public void setStage(Stage stage) {
         this.stage = stage;
+    }
+
+    public void win(){
+        timeline.stop();
+        menu = true;
+        mover = false;
+        gc.drawImage(new Image("sample/recources/win.png"),180,150);
+        gc.drawImage(new Image("sample/recources/recuadro.png"),280,-40);
+        gc.fillText("Score: " + score, 380, 25);
     }
 }
