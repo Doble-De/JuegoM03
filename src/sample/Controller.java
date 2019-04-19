@@ -86,7 +86,6 @@ public class Controller implements Initializable {
             if(score >= 10000){
                 win();
             }
-
         }
     })
     );
