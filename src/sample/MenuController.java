@@ -35,7 +35,7 @@ public class MenuController {
         window.setStage(stage);
 
         stage.setScene(scene);
-        stage.setTitle("Rebota");
+        stage.setTitle("Drops in the Club Yakuza");
         stage.show();
         music.stop();
     }

@@ -144,7 +144,7 @@ public class Controller implements Initializable {
                     window.setStage(stage);
 
                     stage.setScene(sc);
-                    stage.setTitle("Rebota");
+                    stage.setTitle("Drops in the Club Yakuza");
                     stage.setFullScreen(false);
                     stage.show();
                     menu = false;
